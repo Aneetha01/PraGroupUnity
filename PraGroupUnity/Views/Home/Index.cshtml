@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+    Layout = null;
+}
+
+
+
+<div class="row">
+    <div class="col-md-4">
+@using (Html.BeginForm("Calculate", "Home", FormMethod.Post))
+{
+        <div class="form-control" >
+            @Html.DropDownList("SelectedWidgetId", ViewBag.Widgets as SelectList, " Select Widgets  ");
+            <br /><br />
+            @Html.TextBox("WidgetQty")
+            <br /><br />
+            @Html.DropDownList("SelectedStateId", ViewBag.States as SelectList, " Select State  ")
+            <br /><br />
+            <input type="submit" value="Submit" />
+        </div>
+}
+    </div>
+ </div>

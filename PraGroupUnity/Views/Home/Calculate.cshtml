@@ -1,0 +1,32 @@
+﻿@model PraGroup.Models.PraGroupModel
+
+
+    <div>
+        <table cellspacing="0" cellpadding="0" border="1">
+            <tr>
+                <td>WidgetName:</td>
+                <td>@Model.wd[0].Name</td>
+            </tr>
+            <tr>
+                <td>WidgetQty:</td>
+                <td>@Model.WidgetQty</td>
+            </tr>
+            <tr>
+                <td>Widget Price:</td>
+                <td>@Model.wd[0].Price</td>
+            </tr>
+            <tr>
+                <td>WidgetDiscount:</td>
+                <td>@Model.wd[0].Discount %</td>
+            </tr>
+            <tr>
+                <td>Widget State Sales Tax:</td>
+                <td>@Model.state[0].Name -  @Model.state[0].Tax %</td>
+            </tr>
+
+            <tr>
+                <td>GrandTotal:</td>
+                <td>@Model.GrandTotal </td>
+            </tr>
+        </table>
+    </div>
