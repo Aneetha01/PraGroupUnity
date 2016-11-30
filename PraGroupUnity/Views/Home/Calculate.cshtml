@@ -20,7 +20,9 @@
             </tr>
             <tr>
                 <td>WidgetDiscount:</td>
-                <td>@Model.wd[0].Discount %</td>
+                <td>@(Model.wd[0].Discount >0? "true" : "False")
+                
+                </td>
             </tr>
             <tr>
                 <td>Widget State Sales Tax:</td>
