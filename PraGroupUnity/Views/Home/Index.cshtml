@@ -1,23 +1,28 @@
-﻿@{
-    ViewBag.Title = "Home Page";
-    Layout = null;
+﻿@model PraGroup.Models.PraGroupModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 
 
 <div class="row">
-    <div class="col-md-4">
+
 @using (Html.BeginForm("Calculate", "Home", FormMethod.Post))
 {
-        <div class="form-control" >
-            @Html.DropDownList("SelectedWidgetId", ViewBag.Widgets as SelectList, " Select Widgets  ");
+
+        <div class="col-md-4">
             <br /><br />
-            @Html.TextBox("WidgetQty")
-            <br /><br />
-            @Html.DropDownList("SelectedStateId", ViewBag.States as SelectList, " Select State  ")
-            <br /><br />
+            <p>@Html.DropDownList("SelectedWidgetId", ViewBag.Widgets as SelectList, " Select Widgets  ")</p>
+            <p>@Html.ValidationMessageFor(model => model.SelectedWidgetId,"",new { @style="color:red"}) </p>
+            
+            <p>  @Html.TextBox("WidgetQty","Enter Quantity")</p>
+            <p>@Html.ValidationMessageFor(model => model.WidgetQty,"", new { @style = "color:red" }) </p>
+           
+           <p> @Html.DropDownList("SelectedStateId", ViewBag.States as SelectList, " Select State  ")</p>
+            <p>@Html.ValidationMessageFor(model => model.SelectedStateId, "", new { @style = "color:red" }) </p>
+           <br />
             <input type="submit" value="Submit" />
         </div>
+    <br />
 }
-    </div>
- </div>
+  </div>

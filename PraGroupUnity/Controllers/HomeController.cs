@@ -33,16 +33,20 @@ namespace PraGroupUnity.Controllers
         [HttpPost]
         public ActionResult Calculate(PraGroupModel pragroupmodel)
         {
-            List<Widgets> lstwidget = new List<Widgets>();
-            lstwidget = _widgetdata.GetWidgetDataById(pragroupmodel.SelectedWidgetId);
-            List<States> lstState = new List<States>();
-            lstState = _stateData.GetStatesDataById(pragroupmodel.SelectedStateId);
-            pragroupmodel.wd = lstwidget;
-            pragroupmodel.state = lstState;
-            pragroupmodel.BasePrice = _calculation.BasePrice(lstwidget[0].Price, pragroupmodel.WidgetQty);
-            pragroupmodel.GrandTotal = _calculation.GrandTotal(pragroupmodel.BasePrice,lstwidget[0].Discount,lstState[0].Tax);
+            if (ModelState.IsValid)
+            {
+                List<Widgets> lstwidget = new List<Widgets>();
+                lstwidget = _widgetdata.GetWidgetDataById(pragroupmodel.SelectedWidgetId);
+                List<States> lstState = new List<States>();
+                lstState = _stateData.GetStatesDataById(pragroupmodel.SelectedStateId);
+                pragroupmodel.wd = lstwidget;
+                pragroupmodel.state = lstState;
+                pragroupmodel.BasePrice = _calculation.BasePrice(lstwidget[0].Price, pragroupmodel.WidgetQty);
+                pragroupmodel.GrandTotal = _calculation.GrandTotal(pragroupmodel.BasePrice, lstwidget[0].Discount, lstState[0].Tax);
 
-            return View(pragroupmodel);
+                return View(pragroupmodel);
+            }
+            return View();
          }
 
       }

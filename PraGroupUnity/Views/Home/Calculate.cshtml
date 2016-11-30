@@ -1,8 +1,11 @@
 ﻿@model PraGroup.Models.PraGroupModel
-
+@{ 
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
 
     <div>
-        <table cellspacing="0" cellpadding="0" border="1">
+        <br /><br />
+        <table cellspacing="2" cellpadding="2" border="1">
             <tr>
                 <td>WidgetName:</td>
                 <td>@Model.wd[0].Name</td>
